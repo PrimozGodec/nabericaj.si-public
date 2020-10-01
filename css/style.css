@@ -1,0 +1,366 @@
+:root {
+	--bg-green: hsl(134, 61%, 97%); /* light version of bootstrap --green */
+  --middle-green: hsl(134, 61%, 80%); /* light version of bootstrap --green */
+	--text-font-size: 21px;
+	--caption-font-size: 17px;
+	--title-font-size: 45px;
+	--subtitle-font-size: 24px;
+  --plant-title-size: 70px;
+  --dissabled-gray: #343a40;
+  --max-text-width: 700px;
+}
+
+@font-face {
+  font-family: 'IM Fell English';
+  src: url('/fonts/IMFellEnglish-Regular.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('/fonts/IMFellEnglish-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+} 
+@font-face {
+  font-family: 'IndieFlower';
+  src: url('/fonts/IndieFlower-Regular.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('/fonts/IndieFlower-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+} 
+
+@media (min-width: 768px) {
+  body { 
+    padding-top: 160px; 
+  }
+}
+@media (max-width: 768px) {
+  body { 
+    padding-top: 210px; 
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* card images - zoom instead of strech */
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
+
+/* card effect source: https://www.ordinarycoders.com/blog/article/codepen-bootstrap-card-hovers */
+/* next two are for zoom in on card hover */
+a.custom-card .card img,
+a.blog-card .blog-card-img img {
+  -webkit-transition:all .9s ease; 
+  -moz-transition:all .9s ease; 
+  -o-transition:all .9s ease;
+  -ms-transition:all .9s ease; 
+}
+a.custom-card:hover .card img,
+a.blog-card:hover .blog-card-img img {
+  opacity: 0.7;
+  -webkit-transform:scale(1.15);
+  -moz-transform:scale(1.15);
+  -ms-transform:scale(1.15);
+  -o-transform:scale(1.15);
+  transform:scale(1.15);
+}
+
+/* for shadow change on card hover */
+a.custom-card .card {
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  box-shadow:0 .125rem .25rem rgba(0,0,0,.075);
+}
+a.custom-card:hover .card {
+  box-shadow:0 .325rem .55rem rgba(0,0,0,.075);
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+/* card should not be colored blue because it is wrapped in a */
+a.custom-card,
+a.custom-card:hover {
+  color: inherit;
+}
+a.inherit,
+a.inherit:hover {
+  color: inherit;
+}
+
+/* tags button */
+.tag-button {
+  border-radius: 45px !important;
+  border-width: 2px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+.tag-button:focus {
+  box-shadow: none !important;
+}
+
+div.card.passport {
+  background-color: rgba(92, 119, 66, 0.5);
+}
+
+p.card-title {
+	font-size: 21px;
+	font-weight: bold;
+}
+
+/* default max column width */
+.mw {
+	max-width: var(--max-text-width);
+}
+.mw-800 {
+  max-width: 800px;
+}
+
+/* main image for plant */
+img.main-image {
+	width: 100%;
+}
+div.main-image-container {
+  height: 70vh; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+  background-position: center; 
+}
+div.literature ol li {
+  font-size: var(--caption-font-size);
+}
+div.subtitle-box p {
+  color: gray;
+  font-family: 'IM Fell English', serif;
+  font-size: 22px;
+}
+div.passport p,
+div.passport h1 {
+  color: white;
+}
+@media (min-width: 768px) {
+  div.subtitle-box p {
+    text-align: right;
+  }
+}
+div.passport-top {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+div.passport-bottom {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+table.table-months td {
+  padding-left: 0;
+  padding-right: 0
+}
+div.months-box {
+  background-color: var(--dissabled-gray);
+}
+
+/* post icons */
+span.icon-active {
+  color: var(--green) !important;
+}
+span.icon {
+  font-size: 40px;
+  color: var(--dissabled-gray);
+}
+
+/* post style */
+div.post-content p,
+div.post-content h1,
+div.post-content h2,
+div.post-content ul,
+div.post-content ol {
+  max-width: var(--max-text-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* subcategories */
+.subcategories-tags,
+.subcategories-tags:hover,
+.subcategories-tags:focus,
+.subcategories-tags:active {
+  color: white !important;
+}
+
+/* text style */
+
+body {
+	font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+p, li {
+	font-size: var(--text-font-size);
+}
+
+h1 {
+	font-size: var(--title-font-size);
+  font-family: 'IM Fell English', serif;
+}
+h1.plant-title {
+  font-size: var(--plant-title-size) !important;
+}
+
+h2 {
+	font-size: var(--subtitle-font-size);
+	font-weight: bold;
+	padding-top: 30px;
+	margin-bottom: 10px;
+}
+
+/* other properties for whole site */
+:any-link {
+	text-decoration: none;
+	color: var(--green);
+}
+
+:any-link:hover {
+	text-decoration: none;
+	color: green;
+}
+
+/* forms border/focus shine color change */
+.form-control:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 0.2rem var(--middle-green);
+} 
+.btn-primary, 
+.btn-primary:hover, 
+.btn-primary:active, 
+.btn-primary:visited,
+.btn-outline-primary:hover{
+  background-color: var(--green) !important;
+  border-color: var(--green);
+}
+.btn-outline-primary, 
+.btn-outline-primary:active, 
+.btn-outline-primary:visited{
+  border-color: var(--green);
+  color: var(--green);
+}
+.btn-primary:focus,
+.btn-primary:active, /* here because of glow */
+.btn-outline-primary:active
+{
+  box-shadow: none !important;
+  background-color: var(--green) !important;
+  border-color: var(--green) !important;
+}
+
+
+/* padding between sections */
+.psec {
+  padding-top: 80px
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* nav stuff */
+.full-width {
+  width: 100%;
+}
+img.logo {
+  height: 140px;
+}
+.shadow-bottom {
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+}
+li.nav-item {
+  font-family: 'IM Fell English', serif;
+  font-size: var(--subtitle-font-size);
+}
+.nav-item-equal {
+  width: 120px;
+}
+
+/* default posts style */
+p.subtitle {
+  color: gray;
+  font-family: 'IM Fell English', serif;
+  font-size: 24px;
+}
+
+/* styles post images */
+div.post-content figure {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+div.post-content figure img {
+  width: 100%;
+}
+div.post-content figure figcaption h4 {
+  padding-top: 15px;
+  text-align: center;
+}
+h4 {
+  /* curently h4 is only used for figure caption */
+  font-size: var(--caption-font-size);
+}
+figure.text-width {
+  max-width: var(--max-text-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.first-letter-upper:first-letter {
+  text-transform: uppercase;
+}
+
+/* blog */
+h2.blog-card-title {
+  margin-top: 0 !important;
+}
+div.blog-card-img {
+  -ms-flex: 0 0 200px;
+  flex: 0 0 200px;
+  min-height: 170px;
+  overflow: hidden;
+}
+div.blog-card-img>img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* trenutno nabiramo buttons */
+.trenutno-nabiramo-button,
+.trenutno-nabiramo-button-others {
+  font-size: 13px;
+  border-width: 2px;
+
+}
+.box-title {
+  font-size: 28px;
+  font-family: 'IM Fell English', serif;
+}
+.font-size-13 {
+  font-size: 13px;
+}
+.font-size-11 {
+  font-size: 11px;
+}
+.subcategories-tag-m {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+/* doniraj section */
+img.our-image {
+  width: 100%;
+}
+.doniraj-button>i{
+  margin-left: 10px;
+  font-size: 40px;
+}
