@@ -36,6 +36,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* to prevent anchor scrooling going under the sticky nav bar */
+h2, section {
+  scroll-margin-top: 100px;
+}
+
 /* card images - zoom instead of strech */
 .embed-responsive .card-img-top {
     object-fit: cover;
