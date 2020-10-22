@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /categories/druge-bolezni/
+Disallow: /categories/du%C5%A1evnost/
+Disallow: /categories/izlo%C4%8Dala/
+Disallow: /categories/ko%C5%BEa/
+Disallow: /categories/menstruacija-in-ginekologija/
+Disallow: /categories/po%C5%A1kodbe/
+Disallow: /categories/prebava/
+Disallow: /categories/prehlad-gripa-bolezni-dihal/
+Disallow: /categories/srce-in-o%C5%BEilje/
+Disallow: /categories/trebu%C5%A1na-slinavka-in-diabetes/Sitemap: https://xn--naberiaj-pbb.si/sitemap.xml
