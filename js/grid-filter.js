@@ -23,6 +23,7 @@ $(document).ready(function(){
     $(this).addClass('btn-primary');
 
     filterGrid(filter_value, category_value);
+    filterSubcategories(category_value);
   });
 });
 
@@ -40,5 +41,17 @@ function filterGrid(filter_value, category_value) {
       $(this).show();
     else
       $(this).hide();
+  });
+}
+
+function filterSubcategories(category_value) {
+  /*
+  Hide subcategories buttons that are not in the category
+  */
+  $("#sub-categories>a").filter(function() {
+    if (category_value === "all")
+      $(this).show()
+    else
+      $(this).toggle($(this).data('categories').includes(category_value));
   });
 }
