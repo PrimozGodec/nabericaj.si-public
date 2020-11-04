@@ -9,4 +9,4 @@ Disallow: /categories/prebava/
 Disallow: /categories/prehlad-gripa-bolezni-dihal/
 Disallow: /categories/srce-in-o%C5%BEilje/
 Disallow: /categories/trebu%C5%A1na-slinavka-in-diabetes/
-Sitemap: https://xn--naberiaj-pbb.si/sitemap.xml
+Sitemap: https://naberi%C4%8Daj.si/sitemap.xml
