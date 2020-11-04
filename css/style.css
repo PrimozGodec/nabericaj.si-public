@@ -192,7 +192,7 @@ div.post-content ol {
 .subcategories-tags:hover,
 .subcategories-tags:focus,
 .subcategories-tags:active {
-  color: white !important;
+  color: var(--dissabled-gray) !important;
 }
 
 /* text style */
