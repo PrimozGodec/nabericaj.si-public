@@ -168,12 +168,9 @@ div.months-box {
 }
 
 /* post icons */
-span.icon-active {
-  color: var(--green) !important;
-}
-span.icon {
-  font-size: 40px;
-  color: var(--dissabled-gray);
+img.icon {
+  fill: black;
+  height: 50px;
 }
 
 /* post style */
