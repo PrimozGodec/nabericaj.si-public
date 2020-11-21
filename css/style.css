@@ -14,12 +14,13 @@
   font-family: 'IM Fell English';
   src: url('/fonts/IMFellEnglish-Regular.woff2') format('woff2'),
        url('/fonts/IMFellEnglish-Regular.woff') format('woff');
-       
+  font-display: swap; /* show text before font laoded */    
 } 
 @font-face {
   font-family: 'IndieFlower';
   src: url('/fonts/IndieFlower-Regular.woff2') format('woff2'),
        url('/fonts/IndieFlower-Regular.woff') format('woff'); 
+  font-display: swap /* show text before font laoded */
 } 
 
 @media (min-width: 768px) {
