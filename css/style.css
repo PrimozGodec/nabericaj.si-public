@@ -119,6 +119,8 @@ p.card-title {
 /* default max column width */
 .mw {
 	max-width: var(--max-text-width);
+  margin-right: auto;
+  margin-left: auto;
 }
 .mw-800 {
   max-width: 800px;
