@@ -343,7 +343,10 @@ div.blog-card-img>img {
 .trenutno-nabiramo-button-others {
   font-size: 13px;
   border-width: 2px;
-
+  color: #343a40;
+}
+.trenutno-nabiramo-button:hover {
+  color: #fff;
 }
 .box-title {
   font-size: 28px;
