@@ -14,14 +14,3 @@ $(document).scroll(function() {
   	$('nav.navbar').removeClass('shadow-sm');
   }
 });
-
-//add simple support for background images:
-document.addEventListener('lazybeforeunveil', function(e){
-    var bg = e.target.getAttribute('data-bg');
-    console.log("here");
-    console.log(bg);
-    if(bg){
-        e.target.style.backgroundImage = 'url(' + bg + ')';
-        console.log(bg);
-    }
-});
