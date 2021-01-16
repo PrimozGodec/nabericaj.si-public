@@ -1,46 +1,54 @@
-$(document).ready(function(){
-  $("#filterinput").on("keyup", function() {
-    var filter_value = $(this).val().toLowerCase();
-    // btn-primary is selected one
-    var category_value =  $('div#categories button.btn-primary').data('value');
-    if (category_value === undefined) {
-      // cases where we do not have
-      category_value = "all";
-    }
-    console.log(category_value);
+document.addEventListener('DOMContentLoaded', function() {
+  // event for changes in input
+  var input_el = document.querySelector("#filterinput");
+  input_el.addEventListener('keyup', function(e) {
+    var filter_value = e.target.value.toLowerCase();
+    // btn-primary is selected one - one only
+    var cat_sel_button = document.querySelector('div#categories button.btn-success');
+    if (!cat_sel_button)
+      var category_value = "all";
+    else
+      var category_value = cat_sel_button.getAttribute('data-value');
     filterGrid(filter_value, category_value);
   });
 
-  $(".category-button").on("click", function() {
-  	var filter_value = $("#filterinput").val().toLowerCase();
-  	var category_value = $(this).data('value');
+  // event for category button click
+  var category_buttons = document.querySelectorAll(".category-button");
+  category_buttons.forEach(item => {
+    item.addEventListener('click', function(e) {
+      var filter_value = document.querySelector("#filterinput").value.toLowerCase();
+      var category_value = e.target.getAttribute('data-value');
 
-    // unselect all buttons
-    $('.category-button').removeClass('btn-primary')
-    $('.category-button').addClass('btn-outline-primary')
-    // select clicke button
-    $(this).removeClass('btn-outline-primary')
-    $(this).addClass('btn-primary');
+      // unselect selected button
+      document.querySelectorAll('.category-button.btn-success').forEach(item => {
+        item.classList.add('btn-outline-success');
+        item.classList.remove('btn-success');
+      });
+      // select clicked button
+      e.target.classList.remove('btn-outline-success');
+      e.target.classList.add('btn-success');
 
-    filterGrid(filter_value, category_value);
-    filterSubcategories(category_value);
+      filterGrid(filter_value, category_value);
+      filterSubcategories(category_value);
+    });
   });
-});
+}, false);
 
 function filterGrid(filter_value, category_value) {
   /*
   Hide blockst that do not contain text from filter_value 
   or the category_value is not in its class.
   */
-	$("#menu-grid>div.col").filter(function() {
-		var filter_mathces = $(this).text().toLowerCase().indexOf(filter_value) > -1;
+  var elements = document.querySelectorAll("#menu-grid>div.col");
+	elements.forEach(function(el) {
+		var filter_mathces = el.textContent.toLowerCase().indexOf(filter_value) > -1;
 		var category_mathces = (
-      (category_value === "all") ? true : $(this).hasClass(category_value)
+      (category_value === "all") ? true : el.classList.contains(category_value)
     );
     if (filter_mathces && category_mathces)
-      $(this).show();
+      el.style.display = '';  // show
     else
-      $(this).hide();
+      el.style.display = 'none';
   });
 }
 
@@ -48,10 +56,15 @@ function filterSubcategories(category_value) {
   /*
   Hide subcategories buttons that are not in the category
   */
-  $("#sub-categories>a").filter(function() {
+  var elements = document.querySelectorAll("#sub-categories>a");
+  elements.forEach(function(el) {
     if (category_value === "all")
-      $(this).show()
-    else
-      $(this).toggle($(this).data('categories').includes(category_value));
+      el.style.display = '';
+    else {
+      if (el.getAttribute('data-categories').includes(category_value))
+        el.style.display = '';
+      else
+        el.style.display = 'none';
+    }
   });
 }

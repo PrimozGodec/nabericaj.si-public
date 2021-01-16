@@ -1,6 +1,5 @@
 :root {
-	--bg-green: hsl(134, 61%, 97%); /* light version of bootstrap --green */
-  --middle-green: hsl(134, 61%, 80%); /* light version of bootstrap --green */
+  --middle-green: rgba(60,153,110,.5); /* bootstrap green shadow for forms */
 	--text-font-size: 21px;
 	--caption-font-size: 17px;
 	--title-font-size: 45px;
@@ -44,8 +43,11 @@ h2, section {
 }
 
 /* card images - zoom instead of strech */
-.embed-responsive .card-img-top {
-    object-fit: cover;
+.custom-card .card-img-top {
+  object-fit: cover;
+}
+.custom-card-image-div {
+  overflow: hidden;
 }
 
 /* card effect source: https://www.ordinarycoders.com/blog/article/codepen-bootstrap-card-hovers */
@@ -222,19 +224,30 @@ h2 {
 
 /* other properties for whole site */
 :any-link {
-	text-decoration: none;
-	color: var(--green);
+  text-decoration: none;
 }
 
-:any-link:hover {
-	text-decoration: none;
-	color: green;
+.post-content a,
+.card-body a {
+  border-bottom: 2px solid var(--bs-yellow);
+  color: inherit;
+  background-image: linear-gradient(120deg, var(--bs-yellow) 0%, var(--bs-yellow) 100%);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.0em;
+  transition: background-size 0.125s ease-in;
+}
+
+.post-content a:hover,
+.card-body a:hover {
+  background-size: 100% 100%;
+  color: inherit;
 }
 
 /* forms border/focus shine color change */
 .form-control:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 0.2rem var(--middle-green);
+  border-color: var(--bs-success);
+  box-shadow: 0 0 0 0.25rem var(--middle-green);
 } 
 .btn-primary, 
 .btn-primary:hover, 
@@ -259,7 +272,6 @@ h2 {
   border-color: var(--green) !important;
 }
 
-
 /* padding between sections */
 .psec {
   padding-top: 80px
@@ -276,6 +288,10 @@ h2 {
 }
 img.logo {
   height: 140px;
+  transition: height 700ms;
+}
+img.logo.small {
+  height: 70px;
 }
 .shadow-bottom {
   box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
@@ -283,9 +299,6 @@ img.logo {
 li.nav-item {
   font-family: 'IM Fell English', serif;
   font-size: var(--subtitle-font-size);
-}
-.nav-item-equal {
-  width: 130px;
 }
 
 /* default posts style */
@@ -378,6 +391,6 @@ img.our-image {
   font-weight: bold;
 }
 .alert-warning>a:hover {
-  color: #ffc107;
+  color: inherit;
   font-weight: bold;
 }

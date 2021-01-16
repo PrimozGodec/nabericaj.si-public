@@ -7,48 +7,55 @@ meseci_skl = [
 	'oktobru', 'novembru', 'decembru'
 ];
 
-$(document).ready(function(){
-	$(".month-button").on("click", function() {
-		// unselect all buttons
-    $('.month-button').removeClass('btn-primary');
-    $('.month-button').addClass('btn-outline-primary');
-    // select clicke button
-    $(this).removeClass('btn-outline-primary');
-    $(this).addClass('btn-primary');
+document.addEventListener('DOMContentLoaded', function() {
+	var buttons = document.querySelectorAll(".month-button");
+	buttons.forEach(item => {
+		item.addEventListener('click', function(e) {
+			// unselect selected button
+			var selected_button = document.querySelector(".month-button.btn-dark");
+			selected_button.classList.remove('btn-dark');
+	    selected_button.classList.add('btn-outline-dark');
+	    // select clicke button
+	    e.target.classList.remove('btn-outline-dark');
+	    e.target.classList.add('btn-dark');
 
-    filterPlantsMonth($(this).data('value'));
+	    filterPlantsMonth(parseInt(e.target.getAttribute('data-value')));
+	  });
 	});
 
 	// select current month when page opened
-	selectCurrentMonth();
+	if(document.URL.indexOf("po-mesecih") >= 0) 
+		selectCurrentMonth();
 
 	showRandomNCurrent(7);
-})
+}, false);
 
 function filterPlantsMonth(selected_month) {
-	$("#months-grid>div.col").filter(function() {
-		months = $(this).data('months');
+	document.querySelectorAll("#months-grid>div.col").forEach(el => {
+		// read data-months, parse to list and transform to numbers
+		months = JSON.parse(el.getAttribute('data-months')).map(Number);
 		if (months.includes(selected_month)) 
-			$(this).show();
+			el.style.display = ""
 		else
-			$(this).hide();
+			el.style.display = "none";
 	});
 
 	setTitle(selected_month);
-} 
+}
 
 function setTitle(selected_month) {
+	title_el = document.querySelector('#months-title');
 	if (selected_month === current_month)
-		$('#months-title').text("Trenutno nabiramo");
+		title_el.textContent = "Trenutno nabiramo";
 	else 
-		$('#months-title').text(`V ${meseci_skl[selected_month - 1]} nabiramo`);
+		title_el.textContent = `V ${meseci_skl[selected_month - 1]} nabiramo`;
 }
 
 function selectCurrentMonth() {
-	$("button.month-button").filter(function() {
-		if ($(this).data('value') === current_month) {
-			$(this).removeClass('btn-outline-primary');
-    	$(this).addClass('btn-primary');
+	document.querySelectorAll("button.month-button").forEach(item => {
+		if (parseInt(item.getAttribute('data-value')) === current_month) {
+			item.classList.remove('btn-outline-dark');
+    	item.classList.add('btn-dark');
     }
 	});
 
@@ -58,8 +65,9 @@ function selectCurrentMonth() {
 /* function for the index page where we show only
 random n currently growing buttons */
 function showRandomNCurrent(n) {
-	var elements = $('.trenutno-nabiramo-button').filter(function() {
-		return $(this).data('months').includes(current_month);
+	var button_el = Array.from(document.querySelectorAll('.trenutno-nabiramo-button'));
+	var elements = button_el.filter(el => {
+		return JSON.parse(el.getAttribute('data-months')).map(Number).includes(current_month);
 	});
 
 	let all = elements.length;
@@ -69,13 +77,14 @@ function showRandomNCurrent(n) {
 	// Get sub-array of first n elements after shuffled
 	let selected = shuffled.slice(0, n);
 
-	$('.trenutno-nabiramo-button').hide();
-	selected.show();
+
+	button_el.forEach(item => {item.style.display = "none"});
+	selected.forEach(item => {item.style.display = ""});
 
 	let n_othr = all - n;
-	$('.trenutno-nabiramo-button-others').text(`+ ${n_othr} ostalih`);
-	if (n_othr > 0)
-		$('.trenutno-nabiramo-button-others').show();
-	else 
-		$('.trenutno-nabiramo-button-others').hide();
+	n_othr_button = document.querySelector('.trenutno-nabiramo-button-others');
+	n_othr_button.textContent = `+ ${n_othr} ostalih`;
+	// already shown - hide in case when not required
+	if (n_othr < 0)
+		n_othr_button.style.display = "none";
 }

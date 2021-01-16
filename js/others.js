@@ -1,16 +1,31 @@
 // enable tooltip on any emement containg tag tooltip
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
 })
 
-$(document).scroll(function() {
-  $('img.logo').stop().animate(
-  	{height: $(this).scrollTop() > 20? "70px":"140px"},
-  	700
+// incerase or decrease logo size
+window.addEventListener('scroll', function() {
+  // get how much scrooled
+  var scrollTop = (
+    (window.pageYOffset !== undefined) ? 
+    window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop
   );
-  if ($(this).scrollTop() > 20) {
-  	$('nav.navbar').addClass('shadow-sm');
+  // all logo elements
+  var logo_img = document.querySelectorAll("img.logo");
+  // nabar element
+  var nav = document.querySelector("nav.navbar");
+  if (scrollTop > 20) {
+    // when on top of the page - no shadow and logo full size
+  	nav.classList.add('shadow-sm');
+    logo_img.forEach(function(el) {
+      el.classList.add("small");
+    });
   } else {
-  	$('nav.navbar').removeClass('shadow-sm');
+    // when scrooled down - shadow and small logo
+  	nav.classList.remove('shadow-sm');
+    logo_img.forEach(function(el) {
+      el.classList.remove("small");
+    });
   }
 });
