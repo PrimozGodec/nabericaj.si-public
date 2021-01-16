@@ -227,6 +227,7 @@ h2 {
   text-decoration: none;
 }
 
+/* underlined link with animation */
 .post-content a,
 .card-body a {
   border-bottom: 2px solid var(--bs-yellow);
@@ -237,11 +238,15 @@ h2 {
   background-size: 100% 0.0em;
   transition: background-size 0.125s ease-in;
 }
-
 .post-content a:hover,
 .card-body a:hover {
   background-size: 100% 100%;
   color: inherit;
+}
+/* exclude for image grid */
+.gallery-grid a {
+  background-image: none !important;
+  border-bottom: none !important;
 }
 
 /* forms border/focus shine color change */
@@ -394,3 +399,14 @@ img.our-image {
   color: inherit;
   font-weight: bold;
 }
+
+/* ligthbox */
+.gslide-description{
+  background-color: transparent !important;
+}
+.gdesc-inner {
+  text-align: center;
+}
+.gdesc-inner>h4 {
+  color: white !important;
+} 
