@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var social_bar = document.getElementById("social-bar");
 
   // on every scrool
-  if (typeof(element) != 'undefined' && element != null) {
+  if (typeof(social_bar) != 'undefined' && social_bar != null) {
     window.addEventListener('scroll', function() {
       var social_rect = social_bar.getBoundingClientRect();
       function elements_sticks(element, index, array) {
