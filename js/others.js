@@ -29,3 +29,30 @@ window.addEventListener('scroll', function() {
     });
   }
 });
+
+// hide social bar when over image
+document.addEventListener('DOMContentLoaded', function() {
+  // gather all relevant elements on page
+  var images_all = Array.from(document.querySelectorAll("img"));
+  images_all = images_all.filter(el => !el.classList.contains("social-button"));
+  var social_bar = document.getElementById("social-bar");
+
+  // on every scrool
+  window.addEventListener('scroll', function() {
+    var social_rect = social_bar.getBoundingClientRect();
+    function elements_sticks(element, index, array) {
+      el_rect = element.getBoundingClientRect();
+      return !(el_rect.right < social_rect.left || 
+               el_rect.left > social_rect.right || 
+               el_rect.bottom < (social_rect.top - 100) || 
+               el_rect.top > (social_rect.bottom + 100))
+    }
+    var overlap = images_all.some(elements_sticks);
+
+    // hide with opacity - because of animation
+    if (overlap)
+      social_bar.style.opacity = "0";
+    else
+      social_bar.style.opacity = "1";
+  });
+}, false);

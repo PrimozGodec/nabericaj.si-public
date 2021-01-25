@@ -411,3 +411,31 @@ img.our-image {
 .gdesc-inner>h4 {
   color: white !important;
 } 
+
+/* sticky div at the side of the post */
+div.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 150px;
+  z-index: 0;
+}
+div.blog-social-bar {
+  position: absolute; 
+  top: 30px;
+  width: 116px;
+}
+@media (min-width: 1200px) {
+  div.blog-social-bar {
+    left: 70px; 
+  }
+}
+@media (min-width: 1400px) {
+  div.blog-social-bar {
+    left: 150px; 
+  }
+}
+
+/* when hidin element with opacity this will annimate show/hide - look social-bar */
+.annimate-hide {
+  transition: opacity 0.25s ease-in;
+}
