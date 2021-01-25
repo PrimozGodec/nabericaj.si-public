@@ -23,13 +23,19 @@
 } 
 
 @media (min-width: 768px) {
-  body { 
+  .body-padding-lg { 
     padding-top: 160px; 
+  }
+  .body-padding-sm {
+    padding-top: 96px; 
   }
 }
 @media (max-width: 768px) {
-  body { 
+  .body-padding-lg { 
     padding-top: 210px; 
+  }
+  .body-padding-sm { 
+    padding-top: 146px; 
   }
 }
 
@@ -133,7 +139,7 @@ img.main-image {
 	width: 100%;
 }
 div.main-image-container {
-  height: 70vh; 
+  height: 60vh; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -160,6 +166,9 @@ div.passport h1 {
 div.passport-top {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+}
+div.passport-top>div {
+  padding-bottom: 0px;
 }
 div.passport-bottom {
   border-top-right-radius: 0;
@@ -292,12 +301,14 @@ h2 {
 .full-width {
   width: 100%;
 }
-img.logo {
+img.logo.collapsable {
   height: 140px;
+}
+img.logo {
   transition: height 700ms;
 }
 img.logo.small {
-  height: 70px;
+  height: 80px;
 }
 .shadow-bottom {
   box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);

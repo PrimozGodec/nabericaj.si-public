@@ -12,7 +12,7 @@ window.addEventListener('scroll', function() {
     window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop
   );
   // all logo elements
-  var logo_img = document.querySelectorAll("img.logo");
+  var logo_img = document.querySelectorAll("img.logo.collapsable");
   // nabar element
   var nav = document.querySelector("nav.navbar");
   if (scrollTop > 20) {
@@ -38,21 +38,23 @@ document.addEventListener('DOMContentLoaded', function() {
   var social_bar = document.getElementById("social-bar");
 
   // on every scrool
-  window.addEventListener('scroll', function() {
-    var social_rect = social_bar.getBoundingClientRect();
-    function elements_sticks(element, index, array) {
-      el_rect = element.getBoundingClientRect();
-      return !(el_rect.right < social_rect.left || 
-               el_rect.left > social_rect.right || 
-               el_rect.bottom < (social_rect.top - 100) || 
-               el_rect.top > (social_rect.bottom + 100))
-    }
-    var overlap = images_all.some(elements_sticks);
+  if (typeof(element) != 'undefined' && element != null) {
+    window.addEventListener('scroll', function() {
+      var social_rect = social_bar.getBoundingClientRect();
+      function elements_sticks(element, index, array) {
+        el_rect = element.getBoundingClientRect();
+        return !(el_rect.right < social_rect.left || 
+                 el_rect.left > social_rect.right || 
+                 el_rect.bottom < (social_rect.top - 100) || 
+                 el_rect.top > (social_rect.bottom + 100))
+      }
+      var overlap = images_all.some(elements_sticks);
 
-    // hide with opacity - because of animation
-    if (overlap)
-      social_bar.style.opacity = "0";
-    else
-      social_bar.style.opacity = "1";
-  });
+      // hide with opacity - because of animation
+      if (overlap)
+        social_bar.style.opacity = "0";
+      else
+        social_bar.style.opacity = "1";
+    });
+  }
 }, false);
