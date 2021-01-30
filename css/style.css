@@ -450,3 +450,19 @@ div.blog-social-bar {
 .annimate-hide {
   transition: opacity 0.25s ease-in;
 }
+
+.img-fit-cover {
+  object-fit: cover;
+}
+
+/* 
+  to truncate text to number of lines every element using 
+  his class must specify number of lines with 
+  -webkit-line-clamp: n;
+*/
+.text-truncated {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+}
