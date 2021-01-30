@@ -356,8 +356,8 @@ h2.blog-card-title {
   margin-top: 0 !important;
 }
 div.blog-card-img {
-  -ms-flex: 0 0 200px;
-  flex: 0 0 200px;
+  -ms-flex: 0 0 280px;
+  flex: 0 0 280px;
   min-height: 170px;
   overflow: hidden;
 }
