@@ -467,3 +467,20 @@ div.blog-social-bar {
    display: -webkit-box;
    -webkit-box-orient: vertical;
 }
+
+/* read too */
+.related-content {
+  /*background-image: -webkit-linear-gradient(top, rgba(20, 74, 49, 0) 30%, rgba(20, 74, 49, 0.6) 60%, rgba(20, 74, 49,0.6) 100%);*/
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 20%, rgba(50, 50, 50, 0.5) 60%, rgba(50, 50, 50, 0.7) 100%);
+}
+.related-text-div {
+  border-left: 10px solid var(--bs-green);
+  padding-left: 20px;
+  border-bottom-left-radius: 0.25rem;
+  text-shadow: 3px 4px 7px rgba(40, 40, 40, 0.8);
+}
+@media (min-width: 768px) {
+  .related-card{
+    --aspect-ratio: 90%;
+  }  
+}
