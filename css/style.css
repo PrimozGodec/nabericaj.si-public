@@ -482,5 +482,10 @@ div.blog-social-bar {
 @media (min-width: 768px) {
   .related-card{
     --aspect-ratio: 90%;
-  }  
+  }
+}
+@media (max-width: 575.98px) {
+  .related-text-div>p {
+    font-size: 16px;
+  }
 }
