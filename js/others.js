@@ -6,6 +6,7 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 // incerase or decrease logo size
 window.addEventListener('scroll', function() {
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   // get how much scrooled
   var scrollTop = (
     (window.pageYOffset !== undefined) ? 
@@ -17,7 +18,9 @@ window.addEventListener('scroll', function() {
   var nav = document.querySelector("nav.navbar");
   if (scrollTop > 20) {
     // when on top of the page - no shadow and logo full size
-  	nav.classList.add('shadow-sm');
+    console.log(screen.width);
+    if (width > 768)  // on small screen navbar is not fixed-top
+  	  nav.classList.add('shadow-sm');
     logo_img.forEach(function(el) {
       el.classList.add("small");
     });

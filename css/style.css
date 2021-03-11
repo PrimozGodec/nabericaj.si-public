@@ -20,7 +20,7 @@
   src: url('/fonts/IndieFlower-Regular.woff2') format('woff2'),
        url('/fonts/IndieFlower-Regular.woff') format('woff'); 
   font-display: swap /* show text before font laoded */
-} 
+}
 
 @media (min-width: 768px) {
   .body-padding-lg { 
@@ -30,12 +30,10 @@
     padding-top: 96px; 
   }
 }
-@media (max-width: 768px) {
-  .body-padding-lg { 
-    padding-top: 210px; 
-  }
-  .body-padding-sm { 
-    padding-top: 146px; 
+/* padding is not required on small screens since nav is not fixed */
+@media (max-width: 767.98px) {
+  .body-padding-lg, .body-padding-sm { 
+    padding-top: 0px; 
   }
 }
 
@@ -299,20 +297,30 @@ h2 {
 }
 
 /* nav stuff */
-.full-width {
-  width: 100%;
-}
 img.logo.collapsable {
   height: 140px;
 }
+@media (max-width: 767.98px) {
+  /* on small screens nabar is not fixed since it take too much space */
+  .navbar.fixed-top {
+    position: static;
+  }
+  /* on small screens all logos are 140 px since nav is not fixed */
+  img.logo.small {
+    height: 140px;
+  }
+}
+@media (min-width: 768px) {
+  /* on other screens logo scales to 80px on home page or always is 80px on other pages */
+  img.logo.small {
+    height: 80px;
+  }
+}
+.full-width {
+  width: 100%;
+}
 img.logo {
   transition: height 700ms;
-}
-img.logo.small {
-  height: 80px;
-}
-.shadow-bottom {
-  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
 }
 li.nav-item {
   font-family: 'IM Fell English', serif;
@@ -470,7 +478,6 @@ div.blog-social-bar {
 
 /* read too */
 .related-content {
-  /*background-image: -webkit-linear-gradient(top, rgba(20, 74, 49, 0) 30%, rgba(20, 74, 49, 0.6) 60%, rgba(20, 74, 49,0.6) 100%);*/
   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 20%, rgba(50, 50, 50, 0.5) 60%, rgba(50, 50, 50, 0.7) 100%);
 }
 .related-text-div {
