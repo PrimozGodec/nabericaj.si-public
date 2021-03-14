@@ -1,12 +1,23 @@
 :root {
   --middle-green: rgba(60,153,110,.5); /* bootstrap green shadow for forms */
+  --dissabled-gray: #343a40;
+
 	--text-font-size: 21px;
-	--caption-font-size: 17px;
-	--title-font-size: 45px;
+	--caption-font-size: 16px;
+	--title-font-size: 45px;  /* blog and other article titles */
 	--subtitle-font-size: 26px;
   --plant-title-size: 70px;
-  --dissabled-gray: #343a40;
+  --tags-font-size: 13px;  /* yellow tags could be allways small */
+
   --max-text-width: 700px;
+}
+@media (max-width: 767.98px) {
+  :root {
+    --text-font-size: 18px;
+    --caption-font-size: 13px;
+    --subtitle-font-size: 24px;
+    --plant-title-size: 50px;
+  }
 }
 
 @font-face {
@@ -107,10 +118,19 @@ a.inherit:hover {
   border-width: 2px;
   margin-right: 5px;
   margin-left: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+}
+@media (max-width: 767.98px) {
+  .tag-button {
+    margin-right: 2px;
+    margin-left: 2px;
+  }
 }
 .tag-button:focus {
   box-shadow: none !important;
+}
+.category-button {
+  font-size: var(--caption-font-size);
 }
 
 div.card.passport {
@@ -118,7 +138,7 @@ div.card.passport {
 }
 
 p.card-title {
-	font-size: 21px;
+	font-size: var(--text-font-size);
 	font-weight: bold;
 }
 
@@ -150,7 +170,7 @@ div.literature ol li {
 div.subtitle-box p {
   color: gray;
   font-family: 'IM Fell English', serif;
-  font-size: 22px;
+  font-size: var(--text-font-size);
 }
 div.passport p,
 div.passport h1 {
@@ -203,6 +223,7 @@ div.post-content ol {
 .subcategories-tags:focus,
 .subcategories-tags:active {
   color: var(--dissabled-gray) !important;
+  font-size: var(--tags-font-size);
 }
 
 /* text style */
@@ -331,7 +352,7 @@ li.nav-item {
 p.subtitle {
   color: gray;
   font-family: 'IM Fell English', serif;
-  font-size: 24px;
+  font-size: var(--subtitle-font-size);
 }
 
 /* styles post images */
@@ -379,7 +400,7 @@ div.blog-card-img>img {
 /* trenutno nabiramo buttons */
 .trenutno-nabiramo-button,
 .trenutno-nabiramo-button-others {
-  font-size: 13px;
+  font-size: var(--tags-font-size);
   border-width: 2px;
   color: #343a40;
 }
@@ -387,14 +408,8 @@ div.blog-card-img>img {
   color: #fff;
 }
 .box-title {
-  font-size: 28px;
+  font-size: var(--subtitle-font-size);
   font-family: 'IM Fell English', serif;
-}
-.font-size-13 {
-  font-size: 13px;
-}
-.font-size-11 {
-  font-size: 11px;
 }
 .subcategories-tag-m {
   margin-left: 0;
@@ -409,7 +424,7 @@ img.our-image {
 }
 .doniraj-button>i{
   margin-left: 10px;
-  font-size: 40px;
+  font-size: var(--title-font-size);
 }
 
 .alert-warning>a {
@@ -491,8 +506,6 @@ div.blog-social-bar {
     --aspect-ratio: 90%;
   }
 }
-@media (max-width: 575.98px) {
-  .related-text-div>p {
-    font-size: 16px;
-  }
+.related-text-div>p {
+  font-size: var(--text-font-size);
 }
