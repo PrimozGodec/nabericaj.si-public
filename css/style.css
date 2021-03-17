@@ -356,7 +356,9 @@ p.subtitle {
 }
 
 /* styles post images */
-div.post-content figure {
+/* styles post divs - currenly youtube video containers */
+div.post-content figure,
+div.post-content>div {
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -366,6 +368,11 @@ div.post-content figure img {
 div.post-content figure figcaption h4 {
   padding-top: 15px;
   text-align: center;
+}
+/* div - currenlty only known div inside post-contetn is youtube container */
+/* on default width it is high for an average laptop screen */
+div.post-content>div {
+  padding-bottom: 50% !important;
 }
 h4 {
   /* curently h4 is only used for figure caption */
