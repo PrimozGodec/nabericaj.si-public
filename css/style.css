@@ -356,9 +356,7 @@ p.subtitle {
 }
 
 /* styles post images */
-/* styles post divs - currenly youtube video containers */
-div.post-content figure,
-div.post-content>div {
+div.post-content figure {
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -369,11 +367,6 @@ div.post-content figure figcaption h4 {
   padding-top: 15px;
   text-align: center;
 }
-/* div - currenlty only known div inside post-contetn is youtube container */
-/* on default width it is high for an average laptop screen */
-div.post-content>div {
-  padding-bottom: 50% !important;
-}
 h4 {
   /* curently h4 is only used for figure caption */
   font-size: var(--caption-font-size);
@@ -382,6 +375,32 @@ figure.text-width {
   max-width: var(--max-text-width);
   margin-left: auto;
   margin-right: auto;
+}
+.youtube-div {
+  /* copied from the shortcode hugo template */
+  position: relative; 
+  padding-bottom: 56.25%; 
+  height: 0; 
+  overflow: hidden;
+  /*end*/
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+/* workaround for too high (on some computers large than screen) youtube iframe */
+@media (min-width: 1400px) {
+  .youtube-div {
+    padding-bottom: 45%; 
+  }
+}
+.youtube-div>iframe {
+  /* copied from the shortcode */
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  border:0;
+  /*end*/
 }
 
 .first-letter-upper:first-letter {
