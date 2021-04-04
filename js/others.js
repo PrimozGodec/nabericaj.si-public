@@ -18,7 +18,6 @@ window.addEventListener('scroll', function() {
   var nav = document.querySelector("nav.navbar");
   if (scrollTop > 20) {
     // when on top of the page - no shadow and logo full size
-    console.log(screen.width);
     if (width > 768)  // on small screen navbar is not fixed-top
   	  nav.classList.add('shadow-sm');
     logo_img.forEach(function(el) {
